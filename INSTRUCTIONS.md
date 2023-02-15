@@ -6,11 +6,9 @@ Throughout, the main things being assessed are:
 
 * Design        e.g. variable names, code readability, having a logical flow and process, labeling of graphs
 * Data quality  e.g. paying attention to outliers, missing data etc.
-* Explanations  e.g. justifying your approach, comments in the code file will be sufficient
-  
-We are looking for a well-commented code file, and requested outputs saved in `output/`. 
+* Explanations  e.g. justifying your approach
 
-Of course if you find it easier to use R Markdown to provide explanations/justifications in a report format that will be more than acceptable. 
+We are looking for a well-commented R script or R Markdown script, and for outputs (charts etc.) to be saved in `output/`. 
 
 ## 1 - Packages
 Load any relevant packages for reshaping data, joining, visualization, and handling datetimes.
@@ -21,24 +19,24 @@ The files you will need are:
 * `data/download_speed_measurements.csv`
 * `data/upload_speed_measurements.csv`
 * `data/details_for_each_person.csv`
-  
+
 Field descriptions are in `DATA_DICTIONARY.md`.
 
-Please import these files and combine them into a single table which:
+Please import these files and combine them into a single table that:
 
   * has the structure `person_id, city, type_of_broadband_connection, name_of_isp, average_download_speed, average_upload_speed`
   * has 1 line per person (i.e. calculate a single average download and upload speed for each person)
   * only contains people in the cities 'Samsville' and 'Databury'
-  * only contains download and upload measurements which have run successfully (i.e. put a filter on did_test_complete_successfully)
-  * only contains tests from the month of January 2021 (i.e. put a filter on time_of_measurement).
+  * only contains download and upload measurements that have run successfully (i.e. put a filter on did_test_complete_successfully)
+  * only contains tests run in the month of January 2021 (i.e. put a filter on time_of_measurement).
 
 ### (optional)
 
-There are alternative summary statistics used to measure download speed which are more nuanced than the simple average. An example is:
+There are alternative summary statistics used to measure download speed that are more nuanced than a simple average. An example is:
 
 **Calculate the average download speed each day, and take the 60th percentile.**
 
-The value of this metric tells you that 'on at least 60% of days, average download speed will be at least x.'
+The value of this metric tells you that 'on at least 60% of days, average download speed was at least x.'
 
 Calculate this metric for each person in the dataset and add it into your table.
 
@@ -47,13 +45,14 @@ Calculate this metric for each person in the dataset and add it into your table.
 Like any dataset, this one has problems; for example:
   * There are people in different cities
   * People who have differing rates of missing data
-  * There are people with average speeds which are either too high or too low for their `type_of_broadband_connection` (i.e. mislabeled data)
+  * There are people with average speeds that are either too high or too low for their `type_of_broadband_connection` (i.e. mislabeled data)
   * There are people who have OK data overall, but some individual tests fall outside of parameters.
 
-Highlight any data quality issues in this dataset which you think may be relevant.
+Investigate the extent to which these problems appear in the dataset, also whether - and to what extent - they affect your results. Suggest any relevant follow-up investigations or corrective steps to apply to the data.
 
 ## 4 - Data summarization and presentation
-a) Now that you have a table which gives the average download and upload speed for each person, make a couple of summary tables which illustrate the differences in download and upload speed between ISPs for each connection type.
+
+a) Now that you have a table that gives the average download and upload speed for each person, make a couple of summary tables which illustrate the differences in download and upload speed between ISPs for each connection type.
   * Remember that there are two ISPs (Fibrelicious and Useus) with customers in two cities (Samsville and Databury) with three different types of connection (ADSL, VDSL, and Fibre).
   * If possible, make a couple of brief comments to summarize the findings.
 
